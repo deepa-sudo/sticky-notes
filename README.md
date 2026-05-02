@@ -1,73 +1,131 @@
-# React + TypeScript + Vite
+# 📝 Sticky Notes App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive sticky notes application built with React, TypeScript, and Tailwind CSS. Create, drag, and organize colorful sticky notes on a virtual canvas.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🎨 **Colorful Notes** - Four vibrant color themes (Yellow, Green, Blue, Pink)
+- 🖱️ **Drag & Drop** - Freely position notes anywhere on the canvas
+- 📋 **Sidebar Navigation** - Quick access to all your notes
+- 🌓 **Dark Mode Support** - Automatic theme switching
+- ⚡ **Fast & Responsive** - Built with Vite for optimal performance
+- 🎯 **TypeScript** - Fully typed for better developer experience
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS v4** - Styling with custom theme
+- **@dnd-kit** - Drag and drop functionality
+- **ESLint** - Code linting
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Start development server
+npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Build for production
+npm run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
+1. **Add Notes**: Click the `+` button in the bottom-right corner to create a new note
+2. **Drag Notes**: Click and drag any note to reposition it on the canvas
+3. **Select Notes**: Click on a note to select it (shows accent border)
+4. **Sidebar**: View all notes in the sidebar and click to select them
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Canvas.tsx          # Main canvas area with drag-drop context
+│   ├── StickyNote.tsx      # Individual draggable note component
+│   └── Sidebar.tsx         # Sidebar with note list
+├── utils/
+│   └── types.ts            # TypeScript type definitions
+├── App.tsx                 # Main app component
+├── index.css               # Tailwind config and theme
+└── main.tsx                # App entry point
+```
+
+## 🎨 Custom Theme
+
+The app uses Tailwind CSS v4 with custom colors defined in `@theme`:
+
+- **Note Colors**: Yellow, Green, Blue, Pink
+- **Accent Color**: Purple
+- **Dark Mode**: Automatic with custom dark palette
+
+## 🔧 Path Aliases
+
+Configured path aliases for cleaner imports:
+
+```typescript
+@/*            → ./src/*
+@components/*  → ./src/components/*
+@types         → ./src/utils/types.ts
+@utils/*       → ./src/utils/*
+@hooks/*       → ./src/hooks/*
+@assets/*      → ./src/assets/*
+```
+
+## 📝 Type Definitions
+
+```typescript
+type Note = {
+  id: string;
+  content: string;
+  color: "yellow" | "green" | "blue" | "pink";
+  x: number;
+  y: number;
+  isActive?: boolean;
+};
+```
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests!
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+Built with ❤️ using React + TypeScript + Vite
 import reactDom from 'eslint-plugin-react-dom'
 
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
+globalIgnores(['dist']),
+{
+files: ['**/*.{ts,tsx}'],
+extends: [
+// Other configs...
+// Enable lint rules for React
+reactX.configs['recommended-typescript'],
+// Enable lint rules for React DOM
+reactDom.configs.recommended,
+],
+languageOptions: {
+parserOptions: {
+project: ['./tsconfig.node.json', './tsconfig.app.json'],
+tsconfigRootDir: import.meta.dirname,
+},
+// other options...
+},
+},
 ])
+
+```
+
 ```
