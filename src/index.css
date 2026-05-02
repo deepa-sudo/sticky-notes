@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-text: #6b6375;
+  --color-heading: #08060d;
+  --color-bg: #ffffff;
+  --color-surface: #f9f9fb;
+  --color-border: #e5e4e7;
+
+  --color-accent: #aa3bff;
+  --color-accent-hover: #922de0;
+  --color-accent-bg: rgba(170, 59, 255, 0.1);
+  --color-accent-border: rgba(170, 59, 255, 0.5);
+
+  --color-note-yellow: #fff9b1;
+  --color-note-green: #c8f7c5;
+  --color-note-blue: #cce5ff;
+  --color-note-pink: #ffd6e8;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  --radius: 12px;
+
+  --font-family-sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: ui-monospace, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-text: #cfcbd6;
+    --color-heading: #ffffff;
+    --color-bg: #0f0d14;
+    --color-surface: #181622;
+    --color-border: #2a2733;
+
+    --color-accent: #c084ff;
+    --color-accent-hover: #a855f7;
+    --color-accent-bg: rgba(192, 132, 255, 0.15);
+    --color-accent-border: rgba(192, 132, 255, 0.6);
+
+    --color-note-yellow: #5c5400;
+    --color-note-green: #1f3d2b;
+    --color-note-blue: #1c2f4a;
+    --color-note-pink: #4a1f36;
+
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+}
