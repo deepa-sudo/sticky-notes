@@ -9,18 +9,13 @@ export default function App() {
       id: "1",
       content: "My first note",
       color: "yellow",
-      x: 300,
-      y: 100,
+      paperStyle: "style1",
+      x: 0,
+      y: 0,
     },
   ]);
 
   const [activeId, setActiveId] = useState<string | null>(null);
-
-  const updateNotePosition = (id: string, x: number, y: number) => {
-    setNotes((prev) =>
-      prev.map((note) => (note.id === id ? { ...note, x, y } : note)),
-    );
-  };
 
   return (
     <div className="flex bg-bg text-text h-screen">
@@ -28,19 +23,17 @@ export default function App() {
       <Sidebar notes={notes} activeId={activeId} onSelect={setActiveId} />
 
       {/* Canvas */}
-      <Canvas
-        notes={notes}
-        activeId={activeId}
-        setActiveId={setActiveId}
-        updateNotePosition={updateNotePosition}
-      />
+      <Canvas notes={notes} activeId={activeId} setActiveId={setActiveId} />
 
       {/* Add Button */}
       <button
         className="fixed bottom-5 right-5 bg-accent hover:bg-accent-hover text-white w-14 h-14 rounded-full shadow-lg cursor-pointer"
         onClick={() => {
           const colors = ["yellow", "green", "blue", "pink"];
+          const paperStyles = ["style1", "style2"];
           const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          const randomPaperStyle =
+            paperStyles[Math.floor(Math.random() * paperStyles.length)];
 
           setNotes((prev) => [
             ...prev,
@@ -48,8 +41,13 @@ export default function App() {
               id: Date.now().toString(),
               content: "New note",
               color: randomColor as "yellow" | "green" | "blue" | "pink",
-              x: 200,
-              y: 200,
+              paperStyle: randomPaperStyle as
+                | "style1"
+                | "style2"
+                | "style3"
+                | "style4",
+              x: 0,
+              y: 0,
             },
           ]);
         }}

@@ -50,3 +50,28 @@
     --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.6);
   }
 }
+
+/* Paper Style Variants */
+.note-squish-right {
+  border-bottom-right-radius: 250px 15px;
+  border-top-right-radius: 20px 115px;
+  border-top-left-radius: 105px 15px;
+}
+
+.note-squish-left {
+  border-top-left-radius: 250px 15px;
+  border-bottom-left-radius: 20px 115px;
+  border-bottom-right-radius: 105px 15px;
+}
+
+.note-wobble-bottom {
+  border-top-right-radius: 250px 15px;
+  border-bottom-right-radius: 20px 115px;
+  border-bottom-left-radius: 105px 15px;
+}
+
+.note-warped {
+  border-top-right-radius: 250px 15px;
+  border-bottom-right-radius: 20px 115px;
+  border-bottom-left-radius: 105px 15px;
+}
