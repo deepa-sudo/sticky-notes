@@ -22,7 +22,7 @@ export function Sidebar({ notes, activeId, onSelect }: Props) {
             }
           `}
         >
-          {note.content.slice(0, 20)}
+          {note.title}
         </div>
       ))}
     </div>
